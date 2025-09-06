@@ -1,0 +1,115 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="p-6 bg-white shadow-md sticky top-0 z-10">
+        <div className="max-w-5xl mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">Mahadev</h1>
+          <nav className="space-x-4">
+            <a href="#about" className="hover:text-blue-600">About</a>
+            <a href="#skills" className="hover:text-blue-600">Skills</a>
+            <a href="#projects" className="hover:text-blue-600">Projects</a>
+            <a href="#experience" className="hover:text-blue-600">Experience</a>
+            <a href="#contact" className="hover:text-blue-600">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="max-w-5xl mx-auto text-center py-20">
+        <motion.h2 
+          className="text-4xl font-bold mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          Hi, I’m Mahadev 👋
+        </motion.h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Software Engineer and Computer Science graduate (2025) with experience in full-stack web development, cloud computing, and machine learning. Passionate about building scalable applications that enhance efficiency and user experience.
+        </p>
+        <div className="flex justify-center space-x-4 mt-6">
+          <Button asChild><a href="/Mahadev_ATS_Resume.pdf" download>Download Resume</a></Button>
+          <Button variant="outline" asChild><a href="#projects">View Projects</a></Button>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="max-w-5xl mx-auto py-16 px-4">
+        <h3 className="text-2xl font-bold mb-4">About Me</h3>
+        <p>
+          I am a detail-oriented Software Engineer with a strong foundation in data structures, algorithms, and SDLC. My experience spans full-stack development with React.js, Node.js, and MongoDB, as well as cloud deployment on AWS. I’ve also built machine learning models using TensorFlow and OpenCV.
+        </p>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="max-w-5xl mx-auto py-16 px-4">
+        <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            "Python", "C", "Java", "JavaScript", "React.js", "Node.js",
+            "Express.js", "MongoDB", "MySQL", "AWS", "TensorFlow", "OpenCV",
+            "Tailwind CSS", "Git/GitHub"
+          ].map((skill, idx) => (
+            <Card key={idx} className="p-3 text-center">{skill}</Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="max-w-5xl mx-auto py-16 px-4">
+        <h3 className="text-2xl font-bold mb-6">Projects</h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card>
+            <CardContent className="p-4">
+              <h4 className="font-semibold text-lg mb-2">Secure Print</h4>
+              <p className="text-sm text-gray-600">
+                A secure document management and printing system with role-based JWT authentication, AWS S3 cloud storage, and real-time WebSocket communication.
+              </p>
+              <a href="#" className="text-blue-600 text-sm mt-2 inline-block">View on GitHub</a>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4">
+              <h4 className="font-semibold text-lg mb-2">Handwritten Digit Recognition</h4>
+              <p className="text-sm text-gray-600">
+                Built a TensorFlow model achieving 98%+ accuracy on MNIST dataset with real-time digit recognition using OpenCV.
+              </p>
+              <a href="#" className="text-blue-600 text-sm mt-2 inline-block">View on GitHub</a>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" className="max-w-5xl mx-auto py-16 px-4">
+        <h3 className="text-2xl font-bold mb-6">Internships</h3>
+        <ul className="list-disc list-inside space-y-2">
+          <li><b>Python Intern</b> – Internshala | Worked on OOP, data structures, and automation scripts.</li>
+          <li><b>Full Stack Intern</b> – Karunadu Technologies | Contributed to .NET-based web applications, deployment, and testing.</li>
+          <li><b>Project Intern</b> – BEL, Bengaluru | Naval Systems Division, focusing on sonar & communication projects.</li>
+        </ul>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="max-w-5xl mx-auto py-16 px-4 text-center">
+        <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
+        <p className="mb-4">Feel free to reach out for opportunities, collaborations, or questions.</p>
+        <div className="flex justify-center space-x-6">
+          <a href="mailto:mahadevrb401@gmail.com" target="_blank" rel="noreferrer"><Mail className="w-6 h-6" /></a>
+          <a href="https://github.com/mahadev104" target="_blank" rel="noreferrer"><Github className="w-6 h-6" /></a>
+          <a href="https://linkedin.com/in/mahadev104" target="_blank" rel="noreferrer"><Linkedin className="w-6 h-6" /></a>
+        </div>
+      </section>
+
+      <footer className="py-6 bg-gray-100 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Mahadev. All rights reserved.
+      </footer>
+    </div>
+  );
+}
